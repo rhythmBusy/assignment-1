@@ -8,6 +8,11 @@ import (
 
 func printAllValues(anything interface{}) {
 
+	if anything == nil {
+		fmt.Println("Found nil value")
+		return
+	}
+
 	currentValue := reflect.ValueOf(anything)
 
 	switch currentValue.Kind() {
@@ -33,8 +38,8 @@ func printAllValues(anything interface{}) {
 
 func main() {
 
-	responseFromAPI := `
-	{
+	responseFromAPI :=
+		`{
 		"name" : "Tolexo Online Pvt. Ltd",
 		"age_in_years" : 8.5,
 		"origin" : "Noida",
